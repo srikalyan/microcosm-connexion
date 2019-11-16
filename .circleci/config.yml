@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            sudo pip install tox qualifier
+      - run:
+          name: Update qualifier
+          command: |
+            update_qualifier
+      - run:
+          name: Build the project
+          command: |
+            tox
+      - store_artifacts:
+          path: ~/repo/dist
