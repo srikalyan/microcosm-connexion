@@ -1,18 +1,18 @@
 dist: xenial
 language: python
 python:
-  - "3.7"
+- '3.7'
 install:
-  - pip install tox qualifier
+- pip install tox qualifier
 script:
-  - update_qualifier --no-use-git --branch-name "$TRAVIS_BRANCH" --tag-name "$TRAVIS_TAG"
-  - tox
+- update_qualifier --no-use-git --branch-name "$TRAVIS_BRANCH" --tag-name "$TRAVIS_TAG"
+- tox
 deploy:
   provider: pypi
   user: __token__
   password:
-    secure: <change_me>
+    secure: Vxg1svM5qOs+2gHma77P3bxO5dtUvfWG7Yu1ZEDFTAAyUrYNsjl+dfb58IvjGTN50qPLl7I5Usxfesdwv/+5d+GFuEdJL7euEhgMZyHRft+Vj7R19XaDbncMlcd51jIQgF4Q1y3EV2SwoqIuJd9gXjZKfEwCwdL7GPsP4hyTBvpNqJ0Rtt4sftvQ9xWJCvHZgugZaRL3ahAB+hIDgBL9LDNnlVXxrRIJ7iSJQFLKsZYCNpnJAHdD6ePmEs8sxnBYTqPRCexZrkVZhc9H5ggtQtOuOQX6CcKwVdKZh7KNx30r8g0SvOf5ms3IjfVDoCgv3DR5H0czJYST2YxptFu1qQmsNtzI6emi1AqFSE3gdiMMbiu4qMaHvgH4frwbDVYxnEAi97jEIDs59xBhAo7n1Bs2+WlzV6Db4gHDEnadqoUvzu1IO/AUXXawJvmuVa8aymupRok3i1XExAQuTSRfaetjqwRAOHaJJIl4jvSBLb8thJMLV+VSllyXYQXxgLezrvz+Zp2gEkIvnFSHfIYAFtLl3x/kiI1bXKnwNTF2jSxMkpX4bvzHhZMLAPQUMFaVHJU9xtO2AnSvALnhv5K3bhAtuq5/nOevu72q+0oZhgU8QOip/pWfXNwzwoXks5HYiKWhDBmcibYQEGxzYnRYQ3cdL7IAWnQmCiFh9nEZ50s=
   skip_existing: true
-  distributions: "sdist bdist_wheel"
+  distributions: sdist bdist_wheel
   on:
     tags: true
