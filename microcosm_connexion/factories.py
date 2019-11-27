@@ -9,6 +9,11 @@ from microcosm_flask.session import register_session_factory
     port=typed(type=int, default_value=5000)
 )
 def configure_connexion(graph):
+    """
+    Creates and configures connexion's app instance
+    :param graph: Instance of microcosm graph
+    :return: connexion instance
+    """
     connexion_app = connexion.App(graph.metadata.import_name,
                                   port=graph.config.connexion.port,
                                   debug=graph.metadata.debug)
@@ -23,11 +28,15 @@ def configure_connexion(graph):
     return connexion_app
 
 
+@defaults(
+    db_key="db",
+)
 def configure_postgres_session_factory(graph):
     """
-    Bind the SQLAlchemy session context to Flask.
-
+    Binds the Postgres SQLAlchemy session context to Flask.
+    :param graph: Instance of microcosm graph
+    :return:
     """
     from microcosm_postgres.context import SessionContext
 
-    return register_session_factory(graph, "db", SessionContext.make)
+    return register_session_factory(graph, graph.config.postgres_session_factory.db_key, SessionContext.make)

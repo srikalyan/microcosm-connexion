@@ -9,6 +9,7 @@ This project provides the glue between [microcosm] projects and [connexion]. It 
 1. Connexion: An instance of connexion
 2. flask: An instance of flask created by connexion
 3. app: Same as flask instance.
+4. postgress_session_factory: Binds the Postgres SQLAlchemy session context to Flask
 
 The reason for providing flask and app is to make sure that connexion's version of flask overrides [microcosm-flask]'s
 app.

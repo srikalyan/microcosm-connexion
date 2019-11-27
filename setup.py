@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="microcosm_connexion",
-    version="0.1.0" + __QUALIFIER__,
+    version="0.2.0" + __QUALIFIER__,
     description="A python library that exposes microcosm factories for connexions",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -41,6 +41,7 @@ setup(
         "console_scripts": [],
         "microcosm.factories": [
             "connexion = microcosm_connexion.factories:configure_connexion",
+            "postgres_session_factory = microcosm_connexion.factories:configure_postgres_session_factory",
         ],
     },
 )
