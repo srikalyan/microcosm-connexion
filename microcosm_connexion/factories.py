@@ -2,6 +2,7 @@ import connexion
 
 from microcosm.config.validation import typed
 from microcosm.decorators import defaults
+from microcosm.hooks import invoke_resolve_hook
 from microcosm_flask.session import register_session_factory
 
 
@@ -22,8 +23,10 @@ def configure_connexion(graph):
     app.debug = graph.metadata.debug
     app.testing = graph.metadata.testing
 
-    graph.flask = app
-    graph.app = app
+    invoke_resolve_hook(app)
+
+    graph.assign("flask", app)
+    graph.assign("app", app)
 
     return connexion_app
 
