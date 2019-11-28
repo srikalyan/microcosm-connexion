@@ -10,6 +10,8 @@ This project provides the glue between [microcosm] projects and [connexion]. It 
 2. flask: An instance of flask created by connexion
 3. app: Same as flask instance.
 4. postgress_session_factory: Binds the Postgres SQLAlchemy session context to Flask
+5. connexion_error_handler: An instance of the ConnexionErrorHandler used for serializing errors
+6. configure_connexion_error_handler: Binds ConnexionErrorHandler to flask's generic error handler mechanism.
 
 The reason for providing flask and app is to make sure that connexion's version of flask overrides [microcosm-flask]'s
 app.
