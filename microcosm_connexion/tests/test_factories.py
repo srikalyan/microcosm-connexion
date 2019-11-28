@@ -14,6 +14,7 @@ def test_configure_connexion(mock_connexion, mock_invoke_resolve_hook):
     assert_that(connexion_instance, is_(equal_to(mock_connexion.App.return_value)))
 
     mock_connexion.App.assert_called_once_with(graph.metadata.import_name,
+                                               host=graph.config.connexion.host,
                                                port=graph.config.connexion.port,
                                                debug=graph.metadata.debug,
                                                options={"swagger_ui": graph.config.connexion.enable_swagger_ui})
