@@ -7,7 +7,8 @@ from microcosm_flask.session import register_session_factory
 
 
 @defaults(
-    port=typed(type=int, default_value=5000)
+    port=typed(type=int, default_value=5000),
+    enable_swagger_ui=typed(type=bool, default_value=True),
 )
 def configure_connexion(graph):
     """
@@ -15,9 +16,12 @@ def configure_connexion(graph):
     :param graph: Instance of microcosm graph
     :return: connexion instance
     """
+    options = {"swagger_ui": graph.config.connexion.enable_swagger_ui}
+
     connexion_app = connexion.App(graph.metadata.import_name,
                                   port=graph.config.connexion.port,
-                                  debug=graph.metadata.debug)
+                                  debug=graph.metadata.debug,
+                                  options=options)
 
     app = connexion_app.app
     app.debug = graph.metadata.debug

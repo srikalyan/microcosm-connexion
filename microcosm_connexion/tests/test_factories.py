@@ -15,7 +15,8 @@ def test_configure_connexion(mock_connexion, mock_invoke_resolve_hook):
 
     mock_connexion.App.assert_called_once_with(graph.metadata.import_name,
                                                port=graph.config.connexion.port,
-                                               debug=graph.metadata.debug)
+                                               debug=graph.metadata.debug,
+                                               options={"swagger_ui": graph.config.connexion.enable_swagger_ui})
     app = mock_connexion.App.return_value.app
 
     mock_invoke_resolve_hook.assert_called_once_with(app)
