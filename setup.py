@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="microcosm_connexion",
-    version="0.6.0" + __QUALIFIER__,
+    version="1.0.0" + __QUALIFIER__,
     description="A python library that exposes microcosm factories for connexions",
     long_description=long_description,
     long_description_content_type="text/markdown",

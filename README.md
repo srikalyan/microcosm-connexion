@@ -16,10 +16,11 @@ This project provides the glue between [microcosm] projects and [connexion]. It 
 The reason for providing flask and app is to make sure that connexion's version of flask overrides [microcosm-flask]'s
 app.
 
-Note: A cookiecutter would created to make it easy for app developers to quickly start building APIs.
+Note: A [cookiecutter] is created to make it easy for app developers to quickly start building APIs.
 
 [connexion]: https://github.com/zalando/connexion
 [microcosm]: https://github.com/globality-corp/microcosm
 [microcsom-flask]: https://github.com/globality-corp/microcosm-flask
 [microcsom-postgres]: https://github.com/globality-corp/microcosm-postgres
+[cookiecutter]: https://github.com/srikalyan/cookiecutter-connexion-microcosm-service
 
