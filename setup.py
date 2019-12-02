@@ -8,12 +8,12 @@ with open("README.md", "r") as fh:
 
 setup(
     name="microcosm_connexion",
-    version="1.0.0" + __QUALIFIER__,
+    version="1.1.0" + __QUALIFIER__,
     description="A python library that exposes microcosm factories for connexions",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Srikalyan Swayampakula",
-    author_email="",
+    author_email="srikalyansswayam@gmail.com",
     url="https://github.com/srikalyan/microcosm-connexion",
     packages=find_packages(exclude=["*.tests"]),
     test_suite="microcosm_connexion.tests",
